@@ -1,0 +1,53 @@
+<button class="user-button" mat-mini-fab [matMenuTriggerFor]="userMenu">
+    <mat-icon class="user-button__icon" matTooltip="Account">person</mat-icon>
+</button>
+<mat-menu #userMenu="matMenu" xPosition="before">
+    <div style="margin: 10px 30px; display: flex; flex-flow: column; flex-wrap: wrap;">
+        <div class="user-menu-title">
+            <h3 class="user-menu-title__name">{{name}}</h3>
+            <!-- <div class="user-menu-title__link">{{email}}</div> -->
+        </div>
+        <div>
+            <button mat-menu-item class="user-menu__item-title" [routerLink]="['/usermanagement']">
+                <mat-icon class="user-menu-icon">person</mat-icon>
+                <span style="padding: 0px 30px 0px 0px">My Account</span>
+            </button>
+            <button mat-menu-item [routerLink]="['/usermanagement/myorganization']" class="user-menu__item-title"
+                *ngIf="role > 1">
+                <mat-icon class="user-menu-icon">group</mat-icon>
+                <span style="padding: 0px 30px 0px 0px"> My Organization </span>
+            </button>
+        </div>
+        <!-- <div>
+            <button mat-menu-item class="user-menu__item-title" *ngIf="role == 3" [routerLink]="['/gatewaystatus']">
+                <mat-icon class="user-menu-icon">repeat</mat-icon>
+                <span style="padding: 0px 30px 0px 0px">Gateway Status</span>
+            </button>
+            <button mat-menu-item class="user-menu__item-title" [routerLink]="['/usermanagement']">
+                <mat-icon class="user-menu-icon">person</mat-icon>
+                <span style="padding: 0px 30px 0px 0px">My Account</span>
+            </button>
+            <button mat-menu-item [routerLink]="['/usermanagement/myorganization']" class="user-menu__item-title"
+                *ngIf="role > 1">
+                <mat-icon class="user-menu-icon">group</mat-icon>
+                <span style="padding: 0px 30px 0px 0px"> My Organization </span>
+            </button>
+            <button mat-menu-item [routerLink]="['/recentactivities']" class="user-menu__item-title">
+                <mat-icon class="user-menu-icon">library_books</mat-icon>
+                <span style="padding: 0px 30px 0px 0px"> Recent Activities </span>
+            </button>
+            <button mat-menu-item [routerLink]="['/recentactivities/useractivities']" class="user-menu__item-title" *ngIf="role > 1">
+                <mat-icon class="user-menu-icon">group</mat-icon>
+                <span style="padding: 0px 30px 0px 0px"> User Activities </span>
+            </button>
+            <button mat-menu-item [routerLink]="['/mqttservices']" class="user-menu__item-title">
+                <mat-icon class="user-menu-icon">library_books</mat-icon>
+                <span style="padding: 0px 30px 0px 0px"> MQTT Services </span>
+            </button>
+        </div> -->
+
+        <div class="sign-button-wrapper">
+            <button class="sign-button" mat-flat-button (click)="signOutEmit()">Sign out</button>
+        </div>
+    </div>
+</mat-menu>

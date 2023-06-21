@@ -1,0 +1,117 @@
+<!-- All applications(example : energviss, utiliviss etc ) have similar layout design layout so layouts-template is created  -->
+<!-- It accepts data from parent component and display it in frontend -->
+
+<mat-toolbar class="header">
+    <mat-toolbar-row style="justify-content: space-between">
+        <span class="side-options" style="overflow-y: scroll;">
+            <button mat-icon-button class="example-icon" (click)="snav.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <span class="headingText">
+                {{assetname}} / {{currentRoute}}
+            </span>
+        </span>
+        <span>
+
+            <!--              This 2 button refres and alaram is only active in energyviss component     -->
+
+             <!--   //This 2 button refres and alaram is only active in energyviss component     -->
+
+
+            <!-- <button mat-icon-button class="example-icon" (click)="reload()">
+                <mat-icon matTooltip="Reload" class="fontsize-29">refresh</mat-icon>
+            </button>
+            <button *ngIf="constainsAlarm()" mat-icon-button class="example-icon" [routerLink]="['alarms']">
+                <mat-icon matTooltip="Recent Alarms" class="fontsize-25">alarms</mat-icon>
+            </button> -->
+
+
+
+            <!-- <button mat-icon-button class="example-icon" (click)="logout()">
+                <mat-icon matTooltip="Logout" class="fontsize-25">logout</mat-icon>
+            </button> -->
+
+            <ng-template #defaultButtonTemplate>
+                <button mat-icon-button class="example-icon" (click)="reload()">
+                    <mat-icon matTooltip="Reload" class="fontsize-29">refresh</mat-icon>
+                </button>
+                <button *ngIf="constainsAlarm()" mat-icon-button class="example-icon" [routerLink]="['alarms']">
+                    <mat-icon matTooltip="Recent Alarms" class="fontsize-25">alarms</mat-icon>
+                </button>
+            </ng-template>
+
+            <ng-container
+            [ngTemplateOutlet]="customButtonTemplate || defaultButtonTemplate"
+            ></ng-container>
+
+            <app-user-template (signOut)="logout()"></app-user-template>
+        </span>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #snav mode='over' opened="false" class="matDrawer" hasBackdrop=false position="start" autoFocus=false>
+        <!-- MODE : 'over', 'push', 'side' -->
+        <mat-nav-list class="sidenav-container">
+            <span *ngFor="let item of menu">
+                <span *ngIf="item.children && item.children.length > 0">
+                    <mat-accordion class="sidenav-withChild">
+
+                        <!-- *ngIf is used because to ensure that some admin menu items is only visible to admins and super admins members only -->
+                        <!-- Do check its parent component to see which menu items is assigned to admins only -->
+                        <mat-expansion-panel [expanded]="false" *ngIf=" (!item.isAdmin || (item.isAdmin && isAdmin)) && (!item.isSuperAdmin || (item.isSuperAdmin && isSuperAdmin)) ">
+                            <mat-expansion-panel-header class="sidenav-parent">
+                                <mat-panel-title>
+                                    <!-- Submenu headers  -->
+                                    <div fxLayout="row" fxLayoutAlign="space-between center" class="sidebar-item">
+                                        <mat-icon class="sidenav-icon"> {{item.iconName}} </mat-icon>
+                                        <span class="sidenav-name"> {{item.displayName}} </span>
+                                    </div>
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <span *ngFor="let child of item.children" class="dark">
+                                <mat-card
+                                    *ngIf=" (!child.isAdmin || (child.isAdmin && isAdmin)) && (!child.isSuperAdmin || (child.isSuperAdmin && isSuperAdmin)) "
+                                    [routerLink]="child.route"
+                                    (click)="snav.toggle() ; currentRoute = child.displayName" class="sidebar-item" [class.isFocused]="currentRoute === child.displayName">
+                                    <!-- Some menu items will have sub menus -->
+                                    <!-- To finds which menu items have children display it to the frontend -->
+                                    <div fxLayout="row" fxLayoutAlign="space-between center">
+                                        <mat-icon class="sidenav-icon"> {{child.iconName}} </mat-icon>
+                                        <span class="sidenav-name"> {{child.displayName}} </span>
+                                    </div>
+                                </mat-card>
+                            </span>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </span>
+
+
+                <!-- if the menu items have no childres or sub menu it will be shown here -->
+                <span *ngIf="!item.children || item.children.length === 0">
+                    <mat-card
+                        *ngIf=" (!item.isAdmin || (item.isAdmin && isAdmin)) && (!item.isSuperAdmin || (item.isSuperAdmin && isSuperAdmin)) "
+                        [routerLink]="item.route" (click)="snav.toggle() ; currentRoute = item.displayName"
+                        class="sidebar-item" [class.isFocused]="currentRoute === item.displayName">
+                        <!-- [ngClass]="{'active': item.route ? router.isActive(item.route, true): false, 'expanded': false}" -->
+
+                        <!-- Main inputs -->
+                        <div fxLayout="row" fxLayoutAlign="space-between center">
+                            <mat-icon style="vertical-align: middle;"> {{item.iconName}} </mat-icon>
+                            <span style="vertical-align: middle;"> {{item.displayName}} </span>
+                        </div>
+                    </mat-card>
+                </span>
+            </span>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="belowContent">
+
+        <ng-template #defaultContainer>
+            <router-outlet></router-outlet>
+        </ng-template>
+
+        <ng-container [ngTemplateOutlet]="customContainerTemplate || defaultContainer"></ng-container>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+

@@ -1,0 +1,81 @@
+@import 'src/custom-styles/variable';
+
+.user-button {
+    background-color: inherit;
+    box-shadow: none;
+  
+    &__icon {
+      color: white;
+    }
+  
+    &:hover {
+      background-color: rgba(179, 179, 179, 0.2)
+    }
+  }
+  
+  .user-menu-title {
+    margin: 10px 0px;
+  
+    &__name {
+      margin: 1px;
+      font-weight: bold;
+      font-size: 150%;
+      color: inherit;
+      text-align: center;
+      font-family: inherit;
+    }
+  
+    &__link {
+      color: $primaryTextColor;
+      font-weight: inherit;
+      font-size: inherit;
+      text-decoration: none;
+      text-align: center;
+    }
+  }
+  
+  .user-menu-icon {
+    color: lightgray;
+    padding-left: 15px;
+  }
+  
+  .sign-button-wrapper {
+    text-align: center;
+    padding: 8px 0 16px 0;
+    width: 100%;
+  }
+  
+  .sign-button {
+    border: 1px solid;
+    color: $layoutPrimaryColor;
+    width: 100%;
+    &:hover{
+        background-color: $layoutPrimaryColor;
+        color: white;
+    }
+  }
+  
+  .user-menu {
+    &__item-title {
+      color: rgb(146, 146, 146);
+      padding: 0;
+      font-size: 110%;
+      margin: 0;
+  
+      &:hover{
+        color: black;
+        background-color: lightblue;
+  
+        & .user-menu-icon {
+          color: $layoutPrimaryColor;
+        }
+      }
+      // &:focus{
+      //   color: black;
+  
+      //   & .user-menu-icon {
+      //     color: blue;
+      //   }
+      // }
+    }
+  }

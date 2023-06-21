@@ -1,0 +1,73 @@
+@media screen and (max-width: 767px) {
+    .table-width-full {
+        width: 1000px;
+    }
+}
+
+::-webkit-scrollbar {
+    display: block;
+    scrollbar-width: 2px;
+}
+
+.table-width-set {
+    overflow-y: hidden;
+    overflow-x: visible;
+    direction: ltr;
+    scrollbar-width: thin;
+    scrollbar-color: black #154734;
+}
+
+.table-width-set::-webkit-scrollbar {
+    width: 8px;
+    height: 6px;
+}
+
+.table-width-set::-webkit-scrollbar-track {
+    background: rgba(161, 161, 161, 0.459);
+    border-radius: 5px;
+}
+
+.table-width-set::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    // border: 1px solid grey;
+    background: grey;
+}
+
+// .table-rad {
+//     border-radius: 15px;
+// }
+
+// .mat-table {
+//     background-color: transparent !important;
+// }
+// table {
+//     width: 100%;
+//     border-collapse: collapse;
+//     border-radius: 100px;
+// }
+// table tr:last-child td /*To remove the last border*/ {
+//     border-bottom: 0 solid;
+// }
+
+// tr:hover {
+//     background-color: red;
+// }
+tr.mat-mdc-row:hover {
+    background-color: rgba(128, 128, 128, 0.152);
+    cursor: pointer;
+}
+
+.text-green {
+    color: green !important;
+    font-weight: 500;
+}
+
+.text-red {
+    color: #f44336 !important;
+    font-weight: 500;
+}
+
+.text-yellow {
+    color: #caca5f !important;
+    font-weight: 500;
+}

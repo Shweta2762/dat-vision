@@ -1,0 +1,50 @@
+<mat-toolbar class="header">
+    <mat-toolbar-row style="justify-content: space-between">
+        <span>
+            <a [routerLink]="backPage" mat-icon-button class="example-icon">
+                <mat-icon matTooltip="Back" class="fontsize-25">arrow_back</mat-icon>
+            </a>
+        </span>
+        <span style="overflow-y: scroll;">
+            <span class="headingText">
+                Plant
+            </span>
+        </span>
+
+        <span>
+            <!-- <button mat-icon-button class="example-icon" (click)="logout()">
+                <mat-icon matTooltip="Logout" class="fontsize-25">logout</mat-icon>
+            </button> -->
+            <app-user-template (signOut)="logout()"></app-user-template>
+        </span>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<div style="height: 91vh; overflow: scroll;">
+    <div style="display: flex; flex-flow: column; flex-grow: 1;">
+        <div class="wrapper">
+            <!-- <div class="wrapper">
+                <div class="assetWrapper">
+                    <a [routerLink]="['chiller-reports']">
+                        <mat-card class="app-suite-item-card">
+                            <img class="img-CHILL" src="assets/icons/CHILL-logo-darkblue.svg" alt="CHILL">
+                        </mat-card>
+                    </a>
+                    <p class="app-suite-item-text"> Chiller Reports </p>
+                </div>
+
+            </div> -->
+            <div class="wrapper">
+                <div class="assetWrapper">
+                    <a [routerLink]="['front-axle']">
+                        <mat-card class="app-suite-item-card">
+                            <img class="img-CHILL" src="assets/icons/CHILL-logo-darkblue.svg" alt="CHILL">
+                        </mat-card>
+                    </a>
+                    <p class="app-suite-item-text"> Chiller Digital Optimation</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,185 @@
+@import "src/custom-styles/variable";
+@import "src/custom-styles/layout";
+
+.wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 35px;
+    padding-bottom: 35px;
+}
+
+.assetWrapper {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+}
+
+$EM-img-hover-url: "/assets/icons/EM-logo-hover.ico";
+$WLD-img-hover-url: "/assets/icons/WLD-logo-hover.ico";
+$AHU-img-hover-url: "/assets/icons/AHU-logo-hover.ico";
+$TS-img-hover-url: "/assets/icons/TS-logo-hover.ico";
+$PAC-img-hover-url: "/assets/icons/PAC-logo-hover.ico";
+$CSU-img-hover-url: "/assets/icons/CSU-logo-hover.ico";
+$VAV-img-hover-url: "/assets/icons/VAV-logo-hover.ico";
+$UPS-img-hover-url: "/assets/icons/UPS-logo-hover.ico";
+$CO2-img-hover-url: "/assets/icons/CO2-logo-hover.svg";
+$CMP-img-hover-url: "/assets/icons/Compressor-logo-hover.svg";
+$DG-img-hover-url: "/assets/icons/DG-logo-hover.svg";
+$CHILL-img-hover-url: "/assets/icons/CHILL-logo-hover.svg";
+$MONIT-img-hover-url: "/assets/icons/CM logo blue bg.png";
+$TRANS-img-hover-url: "/assets/icons/TRANS-logo-hover.svg";
+$HVAC-img-hover-url: "/assets/icons/HVAC-logo-hover.svg";
+$AHU-img-hover-url: "/assets/icons/AHU-logo-hover.svg";
+$WT-img-hover-url: "/assets/icons/WT-logo-hover.svg";
+$TV-img-hover-url: "/assets/icons/TV-logo-hover.svg";
+$KPI-img-hover-url: "/assets/icons/KPI-logo-hover.svg";
+$ANALY-img-hover-url: "/assets/icons/Alarm analysis logo blue bg.png";
+
+.app-suite-item {
+    &-text {
+        color: $primaryTextColor;
+        font-size: 22px;
+        font-weight: bolder;
+        margin-top: 15px;
+    }
+
+    &-card {
+        width: 150px;
+        height: 150px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+        color: $layoutPrimaryColor;
+        background-color: $layoutHoverColor;
+        font-size: 50px;
+        text-align: center;
+        border-radius: 10px;
+        text-shadow: 2px 2px 4px #000000;
+        align-items: center;
+        vertical-align: middle;
+        padding: 10px;
+        margin: 0px 50px;
+
+        & .img-DG {
+            height: 71% !important;
+            padding-top: 25px;
+        }
+
+        & .img-HVAC {
+            height: 71% !important;
+            padding-top: 25px;
+        }
+
+        & .img-CHILL {
+            height: 80% !important;
+            padding-top: 10px;
+        }
+
+        & .img-WT {
+            width: 80% !important;
+            height: 90% !important;
+        }
+
+        & .img-AHU {
+            // height: 43% !important;
+            // padding-top: 50px;
+        }
+
+        &:hover {
+            background-color: $layoutPrimaryColor;
+            color: $layoutHoverColor;
+
+            .img {
+                &-KPI {
+                    content: url($KPI-img-hover-url);
+                }
+                &-ANALY {
+                    content: url($ANALY-img-hover-url);
+                }
+                &-CMP {
+                    content: url($CMP-img-hover-url);
+                }
+
+                &-DG {
+                    content: url($DG-img-hover-url);
+                }
+
+                &-CHILL {
+                    content: url($CHILL-img-hover-url);
+                }
+
+                &-MONIT {
+                    content: url($MONIT-img-hover-url);
+                }
+
+                &-TRANS {
+                    content: url($TRANS-img-hover-url);
+                }
+
+                &-HVAC {
+                    content: url($HVAC-img-hover-url);
+                }
+
+                &-AHU {
+                    content: url($AHU-img-hover-url);
+                }
+
+                &-WT {
+                    content: url($WT-img-hover-url);
+                }
+
+                &-EM {
+                    content: url($EM-img-hover-url);
+                }
+
+                &-WLD {
+                    content: url($WLD-img-hover-url);
+                }
+
+                &-AHU {
+                    content: url($AHU-img-hover-url);
+                }
+
+                &-TS {
+                    content: url($TS-img-hover-url);
+                }
+
+                &-PAC {
+                    content: url($PAC-img-hover-url);
+                }
+
+                &-CSU {
+                    content: url($CSU-img-hover-url);
+                }
+
+                &-VAV {
+                    content: url($VAV-img-hover-url);
+                }
+
+                &-UPS {
+                    content: url($UPS-img-hover-url);
+                }
+
+                &-CO2 {
+                    content: url($CO2-img-hover-url);
+                }
+                &-TV {
+                    content: url($TV-img-hover-url);
+                }
+            }
+        }
+
+        img {
+            // object-fit: cover;
+            /*this makes the image in src fit to the size specified below*/
+            width: 100%;
+            /* Here you can use wherever you want to specify the width and also the height of the <img>*/
+            height: 100%;
+        }
+    }
+}
