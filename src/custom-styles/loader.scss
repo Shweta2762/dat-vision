@@ -1,0 +1,44 @@
+@import './variable.scss';
+
+.loadermain {
+    border: 5px solid transparent;
+    border-radius: 100%;
+    border-top: 5px solid $layoutPrimaryColor;
+    width: 70px;
+    height: 70px;
+    -webkit-animation: spin 0.7s linear infinite; /* Safari */
+    animation: spin 0.7s linear infinite;
+  }
+  
+/* Safari */
+@-webkit-keyframes spin {
+0% { -webkit-transform: rotate(0deg); }
+100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}
+
+
+.loader{
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    pointer-events: auto;
+    -webkit-tap-highlight-color: transparent;
+    transition: opacity .4s cubic-bezier(.25,.8,.25,1);
+    background-color: inherit;
+
+    &-align{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+}
